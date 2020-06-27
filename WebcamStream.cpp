@@ -1,0 +1,47 @@
+#include <iostream>
+#include <thread>
+
+#include <opencv2/opencv.hpp>
+#include <opencv2/videoio/videoio_c.h>
+
+#include "WebcamStream.h"
+
+// WebcamVideoStream Constructor
+WebcamStream::(int device=0) {
+    this.device_id = device;
+
+    cv::VideoCapture stream(this.device_id);
+    if (!stream.isOpened()) {
+        std::cerr << "(!)ERROR: Unable to open camera\n";
+        return -1;
+    }
+
+}
+
+void WebcamStream::start() {
+    std::thread t1(this.update();
+    // return *this;
+}
+
+void WebcamStream::update() {
+    while (true) {
+        stream.read(this.frame);
+        if (stream.empty()) {
+            std::cerr << "(!)Error: Blank frame grabbed\n";
+            break;
+        }
+
+        if (this.stopped)
+            break;
+    }
+}
+
+cv::Mat WebcamStream::read() {
+    // return the frame most recently read
+    return this.frame;
+}
+
+void WebcamStream::stop() {
+    // make thread stop
+    this.stopped = true;
+}
