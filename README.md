@@ -1,4 +1,4 @@
-# Multithreading OpenCV 
+# Multithreading OpenCV in C++
 An implementation of multithreading on OpenCV to improve the frame per second (FPS) rate 
 
 ## Instruction
