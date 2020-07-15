@@ -3,7 +3,7 @@
 
 int main() {
     WebcamStream ws(0);
-    ws.start();
+    // ws.start();
 
     // ws.stop();
     cv::destroyAllWindows();

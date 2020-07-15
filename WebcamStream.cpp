@@ -7,7 +7,8 @@
 #include "WebcamStream.h"
 
 // WebcamVideoStream Constructor
-WebcamStream::WebcamStream(int device) {
+WebcamStream::WebcamStream(int device) 
+{
     this.device_id = device;
 
     cv::VideoCapture stream(this.device_id);
@@ -18,12 +19,15 @@ WebcamStream::WebcamStream(int device) {
 
 }
 
-void WebcamStream::start() {
+void WebcamStream::start() 
+{
     std::thread t1(this.update());
     // return *this;
 }
 
-void WebcamStream::update() {
+
+void WebcamStream::update() 
+{
     while (true) {
         stream.read(this.frame);
         if (stream.empty()) {
@@ -36,12 +40,15 @@ void WebcamStream::update() {
     }
 }
 
-cv::Mat WebcamStream::read() {
+
+cv::Mat WebcamStream::read() 
+{
     // return the frame most recently read
     return this.frame;
 }
 
-void WebcamStream::stop() {
+void WebcamStream::stop() 
+{
     // make thread stop
     this.stopped = true;
 }
