@@ -2,6 +2,7 @@
 #define WEBCAMSTREAM_H
 
 #include <opencv2/opencv.hpp>
+#include <opencv2/videoio.hpp>
 
 class WebcamStream {
 private:
