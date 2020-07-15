@@ -1,5 +1,5 @@
-# Multithreading OpenCV in C++
-An implementation of multithreading on OpenCV to improve the frame per second (FPS) rate 
+# Increase Webcam FPS with Multithreading in OpenCV C++
+An implementation of multithreading on OpenCV to improve the frame per second (FPS) rate <br>
 
 ## Instruction
 Build and execute:
@@ -8,6 +8,8 @@ mkdir build
 cd build
 cmake ../
 make
+
+./../bin/thread_opencv_cpp  # execute bin file
 ```
 
 Remove files in .gitignore:
@@ -21,3 +23,4 @@ chmod 700 clean.bash
 ## Analysis
 
 ## References
+https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/
