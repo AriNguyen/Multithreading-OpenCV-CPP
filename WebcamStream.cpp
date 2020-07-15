@@ -13,13 +13,13 @@ WebcamStream::WebcamStream(int device) {
     cv::VideoCapture stream(this.device_id);
     if (!stream.isOpened()) {
         std::cerr << "(!)ERROR: Unable to open camera\n";
-        return -1;
+        exit(EXIT_FAILURE);
     }
 
 }
 
 void WebcamStream::start() {
-    std::thread t1(this.update();
+    std::thread t1(this.update());
     // return *this;
 }
 
