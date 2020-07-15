@@ -5,11 +5,11 @@
 
 class WebcamStream {
 private:
-    int device_id;
+    int device_id = 0;
     bool stopped = false;
     cv::Mat frame;
 public:
-    WebcamStream(int device=0);
+    WebcamStream(int device);
     void start();
     void update();
     cv::Mat read();

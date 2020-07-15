@@ -7,7 +7,7 @@
 #include "WebcamStream.h"
 
 // WebcamVideoStream Constructor
-WebcamStream::(int device=0) {
+WebcamStream::WebcamStream(int device) {
     this.device_id = device;
 
     cv::VideoCapture stream(this.device_id);
