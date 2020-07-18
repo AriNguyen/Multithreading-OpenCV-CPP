@@ -20,6 +20,8 @@ chmod 700 clean.bash
 
 ## Explanation
 
+Use **chrono** library to measure time and number of frame per second. 
+
 
 ## Analysis
 
