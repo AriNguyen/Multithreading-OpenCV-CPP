@@ -7,49 +7,75 @@
 
 #include "WebcamStream.h"
 
-// WebcamVideoStream Constructor
-WebcamStream::WebcamStream(int device) : device_id(device)
+WebcamStream::WebcamStream() 
 {
-    // this.device_id = device;
-
-    cv::VideoCapture stream(this.device_id);
-    if (!stream.isOpened()) {
+    // Open selected camera using selected API
+    this->stream.open(this->device_id, this->apiID);
+    if (!this->stream.isOpened()) {
         std::cerr << "(!)ERROR: Unable to open camera\n";
         exit(EXIT_FAILURE);
     }
 
+    this->stream.read(this->frame);
+    if (this->frame.empty()) {
+        std::cerr << "(!)Error1: Blank frame grabbed\n";
+        return;
+    }
+
 }
 
-void WebcamStream::start() 
+WebcamStream::WebcamStream(int device, int api)
+: device_id(device), apiID(api)
 {
-    std::thread t1(this.update());
-    // return *this;
+    // Open selected camera using selected API
+    this->stream.open(this->device_id, this->apiID);
+    if (!this->stream.isOpened()) {
+        std::cerr << "(!)ERROR: Unable to open camera\n";
+        exit(EXIT_FAILURE);
+    }
+
+    this->stream.read(this->frame);
+    if (this->frame.empty()) {
+        std::cerr << "(!)Error1: Blank frame grabbed\n";
+        return;
+    }
 }
 
+WebcamStream& WebcamStream::start()
+{
+    std::thread t1(&WebcamStream::update, this);
+    t1.detach();
+    // this->update();
+    // t1.join();
+    return *this;
+}
 
-void WebcamStream::update() 
+void WebcamStream::update()
 {
     while (true) {
-        stream.read(this.frame);
-        if (stream.empty()) {
-            std::cerr << "(!)Error: Blank frame grabbed\n";
-            break;
-        }
+        // std::cout << "Update\n";
+        if (this->stopped)
+            return;
 
-        if (this.stopped)
-            break;
+        this->stream.read(this->frame);
+        // if (this->frame.empty()) {
+        //     std::cerr << "(!)Error2: Blank frame grabbed\n";
+        //     return;
+        // }
+
     }
 }
 
 
-cv::Mat WebcamStream::read() 
+// return the frame most recently read
+cv::Mat WebcamStream::read()
 {
-    // return the frame most recently read
-    return this.frame;
+    return this->frame;
 }
 
-void WebcamStream::stop() 
-{
-    // make thread stop
-    this.stopped = true;
+
+// make thread stop
+void WebcamStream::stop()
+{ 
+    this->stopped = true;
 }
