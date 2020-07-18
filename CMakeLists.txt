@@ -13,12 +13,18 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib)
 
 # headers
-set(HEADER_FILES ${CMAKE_SOURCE_DIR}/WebcamStream.h)
+set(HEADER_FILES ${CMAKE_SOURCE_DIR}/WebcamStream.h ${CMAKE_SOURCE_DIR}/utils.h)
 
 # OpenCV library
 set(OpenCV_LIBS "/usr/local/lib/opencv4")
 find_package(OpenCV REQUIRED COMPONENTS core imgproc highgui objdetect videoio)
 
-add_executable(thread_opencv_cpp ${CMAKE_SOURCE_DIR}/main.cpp)
+add_executable(thread_opencv_cpp 
+    ${CMAKE_SOURCE_DIR}/main.cpp 
+    ${CMAKE_SOURCE_DIR}/WebcamStream.cpp 
+    ${CMAKE_SOURCE_DIR}/WebcamStream.h 
+    ${CMAKE_SOURCE_DIR}/utils.h
+    ${CMAKE_SOURCE_DIR}/utils.cpp
+)
 target_link_libraries(thread_opencv_cpp ${OpenCV_LIBS})
 
