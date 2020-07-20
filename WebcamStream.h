@@ -13,8 +13,11 @@ private:
     cv::VideoCapture stream; //--- INITIALIZE VIDEOCAPTURE
     cv::Mat frame;
     std::mutex m;
+    
+    WebcamStream& operator=(const WebcamStream& o); // protect assignment
+    WebcamStream(const WebcamStream&) {};           // protect copy constructor
+    void init();                                    // base constructor 
 
-    WebcamStream& operator=(const WebcamStream& o);
 public:    
     WebcamStream();
     WebcamStream(int device, int api);

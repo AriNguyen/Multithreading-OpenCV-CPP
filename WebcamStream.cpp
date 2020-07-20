@@ -17,7 +17,7 @@ WebcamStream& WebcamStream::operator=(const WebcamStream& o)
     return *this;
 }
 
-WebcamStream::WebcamStream() 
+void WebcamStream::init() 
 {
     // Open selected camera using selected API
     this->stream.open(this->device_id, this->apiID);
@@ -31,24 +31,17 @@ WebcamStream::WebcamStream()
         std::cerr << "(!)Error1: Blank frame grabbed\n";
         return;
     }
+}
 
+WebcamStream::WebcamStream() 
+{
+    this->init();
 }
 
 WebcamStream::WebcamStream(int device, int api)
 : device_id(device), apiID(api)
 {
-    // Open selected camera using selected API
-    this->stream.open(this->device_id, this->apiID);
-    if (!this->stream.isOpened()) { // check if succeeded
-        std::cerr << "(!)ERROR: Unable to open camera\n";
-        exit(EXIT_FAILURE);
-    }
-
-    this->stream.read(this->frame);
-    if (this->frame.empty()) {
-        std::cerr << "(!)Error1: Blank frame grabbed\n";
-        return;
-    }
+    this->init();
 }
 
 WebcamStream& WebcamStream::start()
