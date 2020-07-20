@@ -18,8 +18,8 @@ make
 
 Remove files in .gitignore:
 ```shell
-chmod 700 clean.bash
-./clean.bash < .gitignore
+chmod 700 utils/clean.bash
+./utils/clean.bash < .gitignore
 ```
 
 ## Explanation
