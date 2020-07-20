@@ -1,17 +1,21 @@
 #ifndef WEBCAMSTREAM_H
 #define WEBCAMSTREAM_H
 
+#include <mutex>
 #include <opencv2/opencv.hpp>
 #include <opencv2/videoio.hpp>
 
 class WebcamStream {
-public:
-    int apiID = cv::CAP_ANY; 
-    int device_id = 0;
-    bool stopped = false;
-    cv::VideoCapture stream;
+private:
+    int apiID = cv::CAP_ANY; // 0 = autodetect default API
+    int device_id = 0;       // 0 = open default camera
+    bool stopped = false;   
+    cv::VideoCapture stream; //--- INITIALIZE VIDEOCAPTURE
     cv::Mat frame;
-    
+    std::mutex m;
+
+    WebcamStream& operator=(const WebcamStream& o);
+public:    
     WebcamStream();
     WebcamStream(int device, int api);
     WebcamStream& start();

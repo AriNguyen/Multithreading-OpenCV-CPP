@@ -1,11 +1,21 @@
 #include <iostream>
 #include <thread>
+#include <mutex>
 
 #include <opencv2/opencv.hpp>
 #include <opencv2/videoio/videoio_c.h>
 #include <opencv2/videoio.hpp>
 
 #include "WebcamStream.h"
+
+
+WebcamStream& WebcamStream::operator=(const WebcamStream& o) 
+{
+    if (this != &o) {
+        frame = o.frame;
+    }
+    return *this;
+}
 
 WebcamStream::WebcamStream() 
 {
@@ -29,7 +39,7 @@ WebcamStream::WebcamStream(int device, int api)
 {
     // Open selected camera using selected API
     this->stream.open(this->device_id, this->apiID);
-    if (!this->stream.isOpened()) {
+    if (!this->stream.isOpened()) { // check if succeeded
         std::cerr << "(!)ERROR: Unable to open camera\n";
         exit(EXIT_FAILURE);
     }
@@ -46,24 +56,29 @@ WebcamStream& WebcamStream::start()
     std::thread t1(&WebcamStream::update, this);
     t1.detach();
     // this->update();
-    // t1.join();
     return *this;
 }
 
 void WebcamStream::update()
 {
+    //--- GRAB AND WRITE LOOP
+    std::cout << "Start grabbing" << std::endl
+        << "Press any key to terminate" << std::endl;
+
     while (true) {
-        // std::cout << "Update\n";
         if (this->stopped)
             return;
 
-        this->stream.read(this->frame);
-        // std::cout << "wcs.c: " << &this->frame << std::endl;
-        // if (this->frame.empty()) {
-        //     std::cerr << "(!)Error2: Blank frame grabbed\n";
-        //     return;
-        // }
+        this->m.lock();
 
+        // wait for a new frame from camera and store it into 'frame'
+        this->stream.read(this->frame);
+        if (this->frame.empty()) { //check if succeeded
+            std::cerr << "(!)Error2: Blank frame grabbed\n";
+            return;
+        }
+        
+        this->m.unlock();
     }
 }
 
