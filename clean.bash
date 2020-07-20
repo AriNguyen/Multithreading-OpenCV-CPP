@@ -36,7 +36,7 @@ function getGitignoreFiles()
 {
 	while read line; do
 		if [[ "${line:0:1}" != "#" ]]; then  # ignore comment
-			echo ${line}
+			# echo ${line}
 			if [[ ${line:0:1} == "*" ]]; then
 				len="$((${#line} - 1))"
 				extToRemove+=( ${line: -$len} ) 
