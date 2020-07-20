@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <opencv2/opencv.hpp>
 
-#include "WebcamStream.h"
-#include "utils.h"
+#include "src/WebcamStream.h"
+#include "src/utils.h"
 
 int main() 
 {
