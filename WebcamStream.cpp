@@ -58,6 +58,7 @@ void WebcamStream::update()
             return;
 
         this->stream.read(this->frame);
+        // std::cout << "wcs.c: " << &this->frame << std::endl;
         // if (this->frame.empty()) {
         //     std::cerr << "(!)Error2: Blank frame grabbed\n";
         //     return;
@@ -68,9 +69,10 @@ void WebcamStream::update()
 
 
 // return the frame most recently read
-cv::Mat WebcamStream::read()
+cv::Mat *WebcamStream::read()
 {
-    return this->frame;
+    // std::cout << "read():" << &this->frame << std::endl;
+    return &this->frame;
 }
 
 
