@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdio.h>
 #include <opencv2/opencv.hpp>
 
 #include "WebcamStream.h"
@@ -12,12 +13,12 @@ int main()
     cv::Mat *frame;
 
     // start the program
-    ws = WebcamStream().start();
+    ws.start();
     fps.start();
     while (fps.getNumFrames() < numFrames) {
         frame = ws.read();
-        // std::cout << "main.c:" << frame << std::endl;
 
+        // show live and wait for a key with timeout long enough to show images
         cv::imshow("Live", *frame);
         if (cv::waitKey(5) >= 0) {
             break;
@@ -25,8 +26,14 @@ int main()
 
         fps.update();
     }
+
     // stop the frogram
     fps.stop();
+
+    std::cout << "[INFO] elasped time: " << std::chrono::duration_cast<std::chrono::milliseconds>(fps.elapsed()).count() 
+        << "milliseconds\n";
+    std::cout << "[INFO] approx. FPS: " << fps.fps() << std::endl;
+
     cv::destroyAllWindows();
     ws.stop();
 
