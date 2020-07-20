@@ -22,9 +22,12 @@ chmod 700 utils/clean.bash
 ./utils/clean.bash < .gitignore
 ```
 
-## Explanation
-
+## Webcam Stream and measure FPS
 Use **chrono** library to measure time and number of frame per second. 
+
+
+## Face Dection using dlib
+http://dlib.net/webcam_face_pose_ex.cpp.html
 
 
 ## Analysis
