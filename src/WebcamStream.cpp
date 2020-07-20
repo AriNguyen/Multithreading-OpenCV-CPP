@@ -44,12 +44,11 @@ WebcamStream::WebcamStream(int device, int api)
     this->init();
 }
 
-WebcamStream& WebcamStream::start()
+WebcamStream WebcamStream::start()
 {
     std::thread t1(&WebcamStream::update, this);
     t1.detach();
     // this->update();
-    return *this;
 }
 
 void WebcamStream::update()
@@ -79,7 +78,6 @@ void WebcamStream::update()
 // return the frame most recently read
 cv::Mat *WebcamStream::read()
 {
-    // std::cout << "read():" << &this->frame << std::endl;
     return &this->frame;
 }
 
