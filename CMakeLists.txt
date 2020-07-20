@@ -22,10 +22,13 @@ set(HEADER_FILES
 set(OpenCV_LIBS "/usr/local/lib/opencv4")
 find_package(OpenCV REQUIRED COMPONENTS core imgproc highgui objdetect videoio)
 
+# target
 add_executable(thread_opencv_cpp 
     main.cpp 
     ${CMAKE_SOURCE_DIR}/WebcamStream.cpp
     ${CMAKE_SOURCE_DIR}/utils.cpp
 )
+
+# external library
 target_link_libraries(thread_opencv_cpp ${OpenCV_LIBS})
 
