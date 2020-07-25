@@ -1,3 +1,9 @@
+/**
+ *  @file WebcamStream.h
+ *  @brief header for the object WebcamStream which open camera, 
+ *      streams, and do threading 
+ *  @author Ari Nguyen 
+ */
 #ifndef WEBCAMSTREAM_H
 #define WEBCAMSTREAM_H
 
