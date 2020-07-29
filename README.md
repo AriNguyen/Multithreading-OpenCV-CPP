@@ -33,7 +33,13 @@ http://dlib.net/webcam_face_pose_ex.cpp.html
 
 
 ## Analysis
+With 100 frames:
+[INFO] elasped time: 1.67111seconds
+[INFO] approx. FPS: 59.8404
 
+With 100 frames:
+[INFO] elasped time: 16.1492 seconds
+[INFO] approx. FPS: 61.9224
 
 ## References
 https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/
