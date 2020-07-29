@@ -6,16 +6,28 @@
 #include <chrono>
 #include <iostream>
 #include <stdio.h>
+#include <string>
 #include <opencv2/opencv.hpp>
 
 #include "src/WebcamStream.h"
 #include "src/utils.h"
 
-int main() {
-    int numFrames = 100;  // default
+int main(int argc, char *argv[]) {
+    int numFrames = 1000;  // default
     WebcamStream ws;
     FPS fps;
     cv::Mat *frame;
+
+    // set numFrames;
+    if (argc > 1) {
+        try {
+            numFrames = atoi(argv[1]);
+        }
+        catch (std::exception const & e) {
+            std::cout<< "error: " << e.what() << std::endl;
+            exit(1);
+        }
+    }
 
     // start streaming video
     ws.start();
@@ -28,7 +40,6 @@ int main() {
         if (cv::waitKey(5) >= 0) {
             break;
         }
-
         fps.update();
     }
 
@@ -36,11 +47,13 @@ int main() {
     fps.stop();
 
     // display info
-    std::cout << "[INFO] elasped time: " << fps.elapsed() << " seconds\n";
-    std::cout << "[INFO] approx. FPS: " << fps.fps() << std::endl;
+    std::cout << "[INFO] Total Frames: " << numFrames << std::endl;
+    std::cout << "[INFO] Elasped time: " << fps.elapsed() << " seconds\n";
+    std::cout << "[INFO] Approx. FPS: " << fps.fps() << std::endl;
 
+    // cleanup
     cv::destroyAllWindows();
     ws.stop();
 
-    return 0;
+    exit(0);
 }
