@@ -3,6 +3,7 @@
  *  @brief opencv webcam stream and testing multithreading efficiency
  *  @author Ari Nguyen 
  */
+#include <chrono>
 #include <iostream>
 #include <stdio.h>
 #include <opencv2/opencv.hpp>
@@ -35,8 +36,7 @@ int main() {
     fps.stop();
 
     // display info
-    std::cout << "[INFO] elasped time: " << std::chrono::duration_cast<std::chrono::milliseconds>(fps.elapsed()).count() 
-        << "milliseconds\n";
+    std::cout << "[INFO] elasped time: " << fps.elapsed() << " seconds\n";
     std::cout << "[INFO] approx. FPS: " << fps.fps() << std::endl;
 
     cv::destroyAllWindows();

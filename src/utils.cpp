@@ -1,40 +1,33 @@
 #include <chrono>
 #include "utils.h"
 
-int FPS::getNumFrames()
-{
+int FPS::getNumFrames() {
     return this->numFrames;
 }
 
 
-FPS& FPS::start()
-{
-    this->timeStart = std::chrono::high_resolution_clock::now();
-    return *this;
+void FPS::start() {
+    this->timeStart = clock();
 }
 
 
-void FPS::stop()
-{
-    this->timeStop = std::chrono::high_resolution_clock::now();
+void FPS::stop() {
+    this->timeStop = clock();
 }
 
 
-void FPS::update()
-{
+void FPS::update() {
     this->numFrames++;
 }
 
 
-std::chrono::duration<float> FPS::elapsed()
-{
-    std::chrono::duration<float> diff = this->timeStart - this->timeStop;
-    return diff;
+double FPS::elapsed() {
+    double elapsed_secs = double(this->timeStop - this->timeStart) / CLOCKS_PER_SEC;;
+    return elapsed_secs;
 }
 
 
-float FPS::fps() 
-{
-    float fps = this->numFrames / this->elapsed().count();
+double FPS::fps() {
+    double fps = this->numFrames / this->elapsed();
     return fps;
 }

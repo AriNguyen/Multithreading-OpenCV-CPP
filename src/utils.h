@@ -1,21 +1,21 @@
 #ifndef OPENCV_UTILS_H
 #define OPENCV_UTILS_H
 
-#include <chrono>
+#include <ctime>
 
 class FPS
 {
 private:
-    std::chrono::time_point<std::chrono::high_resolution_clock> timeStart, timeStop;
+    clock_t timeStart, timeStop;
     int numFrames = 0;
 public:
     // FPS();
     int getNumFrames();
-    FPS& start();
+    void start();
     void stop();
     void update();
-    std::chrono::duration<float> elapsed();
-    float fps();
+    double elapsed();
+    double fps();
 };
 
 #endif
