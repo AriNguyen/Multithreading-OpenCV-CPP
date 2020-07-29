@@ -9,16 +9,14 @@
 #include "WebcamStream.h"
 
 
-WebcamStream& WebcamStream::operator=(const WebcamStream& o) 
-{
+WebcamStream& WebcamStream::operator=(const WebcamStream& o) {
     if (this != &o) {
         frame = o.frame;
     }
     return *this;
 }
 
-void WebcamStream::init() 
-{
+void WebcamStream::init() {
     // Open selected camera using selected API
     this->stream.open(this->device_id, this->apiID);
     if (!this->stream.isOpened()) {
@@ -33,26 +31,22 @@ void WebcamStream::init()
     }
 }
 
-WebcamStream::WebcamStream() 
-{
+WebcamStream::WebcamStream() {
     this->init();
 }
 
 WebcamStream::WebcamStream(int device, int api)
-: device_id(device), apiID(api)
-{
+: device_id(device), apiID(api) {
     this->init();
 }
 
-WebcamStream WebcamStream::start()
-{
+WebcamStream WebcamStream::start() {
     std::thread t1(&WebcamStream::update, this);
     t1.detach();
     // this->update();
 }
 
-void WebcamStream::update()
-{
+void WebcamStream::update() {
     //--- GRAB AND WRITE LOOP
     std::cout << "Start grabbing" << std::endl
         << "Press any key to terminate" << std::endl;
@@ -76,14 +70,12 @@ void WebcamStream::update()
 
 
 // return the frame most recently read
-cv::Mat *WebcamStream::read()
-{
+cv::Mat *WebcamStream::read() {
     return &this->frame;
 }
 
 
 // make thread stop
-void WebcamStream::stop()
-{ 
+void WebcamStream::stop() { 
     this->stopped = true;
 }

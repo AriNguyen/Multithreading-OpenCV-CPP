@@ -10,14 +10,13 @@
 #include "src/WebcamStream.h"
 #include "src/utils.h"
 
-int main() 
-{
+int main() {
     int numFrames = 100;  // default
     WebcamStream ws;
     FPS fps;
     cv::Mat *frame;
 
-    // start the program
+    // start streaming video
     ws.start();
     fps.start();
     while (fps.getNumFrames() < numFrames) {
@@ -32,9 +31,10 @@ int main()
         fps.update();
     }
 
-    // stop the frogram
+    // stop measuring fps
     fps.stop();
 
+    // display info
     std::cout << "[INFO] elasped time: " << std::chrono::duration_cast<std::chrono::milliseconds>(fps.elapsed()).count() 
         << "milliseconds\n";
     std::cout << "[INFO] approx. FPS: " << fps.fps() << std::endl;
