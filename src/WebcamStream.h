@@ -27,7 +27,7 @@ private:
 public:    
     WebcamStream();
     WebcamStream(int device, int api);
-    WebcamStream& start();
+    void start();
     void update();
     cv::Mat *read();
     void stop();

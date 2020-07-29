@@ -40,7 +40,7 @@ WebcamStream::WebcamStream(int device, int api)
     this->init();
 }
 
-WebcamStream WebcamStream::start() {
+void WebcamStream::start() {
     std::thread t1(&WebcamStream::update, this);
     t1.detach();
     // this->update();
@@ -48,7 +48,7 @@ WebcamStream WebcamStream::start() {
 
 void WebcamStream::update() {
     //--- GRAB AND WRITE LOOP
-    std::cout << "Start grabbing" << std::endl
+    std::cout << "Start grabbing ..." << std::endl
         << "Press any key to terminate" << std::endl;
 
     while (true) {
