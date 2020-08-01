@@ -13,7 +13,7 @@
 #include "src/utils.h"
 
 int main(int argc, char *argv[]) {
-    int numFrames = 1000;  // default
+    int numFrames = 100;  // default
     WebcamStream ws;
     FPS fps;
     cv::Mat *frame;
