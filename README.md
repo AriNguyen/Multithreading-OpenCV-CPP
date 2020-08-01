@@ -25,18 +25,18 @@ chmod 700 utils/clean.bash
 ```
 
 ## Webcam Stream 
-The detach method ```t1.detach()``` is used because the main thread don't need to wait for thream being processing and return. Instead, it will get the dataframe. The process happens simultaneously.
+The detach method ```t1.detach()``` is used we don't need to wait for the thread 1 to finish. Instead, it will get the dataframe. The process happens simultaneously.
 
 ## Measuring FPS and Elapsed time
 I first use **chrono** liberary to measure the time but found that it's hard to convert to seconds unit for calculating FPS. So, I use **ctime**.
 ```c
-# in utils.cpp
+// in utils.cpp
 #include <ctime>
 
 numFrames = 100;
 
 clock_t start = clock();
-# some function here
+// some function here
 clock_t end = clock();
 
 double elapsed_secs = double(end - start) / CLOCKS_PER_SEC;
@@ -48,6 +48,7 @@ http://dlib.net/webcam_face_pose_ex.cpp.html
 
 
 ## Analysis
+### Just streaming webcam
 Stream 1000 frames for 10 times and record the data:
 ```shell
 # run in terminal
@@ -73,6 +74,9 @@ Test 10 times w/o multithreading
 
 The elapsed time don't see any change; however, the FPS of streaming 100 and 1000 frames increase by 23.5% and 31.5%, respectively.
 
+### Face Detection
+
+### Object Detection
 
 ## References
 https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/
