@@ -48,11 +48,13 @@ Test 10 times with multithreading
 | 1000          | 14.5097       | 68.9689       |
 
 
-Test 11 times w/o multithreading
+Test 20 times w/o multithreading
 | frames        | Elapsed (Avg) | FPS (Avg)     |
 | ------------- | ------------- | ------------- |
-| 100           | 1.57211       | 63.621        |
-| 1000          | 14.5213       | 68.9097       |
+| 100           | 1.95773       | 51.0956       |
+| 1000          | 13.9149       | 52.4172       |
+
+
 
 
 ## References
