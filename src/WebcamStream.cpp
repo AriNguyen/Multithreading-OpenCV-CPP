@@ -43,7 +43,6 @@ WebcamStream::WebcamStream(int device, int api)
 void WebcamStream::start() {
     std::thread t1(&WebcamStream::update, this);
     t1.detach();
-    // this->update();
 }
 
 void WebcamStream::update() {
