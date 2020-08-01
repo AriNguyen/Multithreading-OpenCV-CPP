@@ -24,9 +24,24 @@ chmod 700 utils/clean.bash
 ./utils/clean.bash < .gitignore
 ```
 
-## Webcam Stream and measure FPS
-Use **chrono** library to measure time and number of frame per second. 
+## Webcam Stream 
+The detach method ```t1.detach()``` is used because the main thread don't need to wait for thream being processing and return. Instead, it will get the dataframe. The process happens simultaneously.
 
+## Measuring FPS and Elapsed time
+I first use **chrono** liberary to measure the time but found that it's hard to convert to seconds unit for calculating FPS. So, I use **ctime**.
+```c
+# in utils.cpp
+#include <ctime>
+
+numFrames = 100;
+
+clock_t start = clock();
+# some function here
+clock_t end = clock();
+
+double elapsed_secs = double(end - start) / CLOCKS_PER_SEC;
+double fps = numFrames / elapsed_secs;
+```
 
 ## Face Dection using dlib
 http://dlib.net/webcam_face_pose_ex.cpp.html
@@ -41,20 +56,22 @@ for i in {1..10}; do
     ./bin/thread_opencv_cpp 1000 >> output.txt
 done
 ```
+
 Test 10 times with multithreading
 | frames        | Elapsed (Avg) | FPS (Avg)     |
 | ------------- | ------------- | ------------- |
-| 100           | 1.57126       | 63.6563        |
+| 100           | 1.57126       | 63.6563       |
 | 1000          | 14.5097       | 68.9689       |
 
 
-Test 20 times w/o multithreading
+Test 10 times w/o multithreading
 | frames        | Elapsed (Avg) | FPS (Avg)     |
 | ------------- | ------------- | ------------- |
 | 100           | 1.95773       | 51.0956       |
 | 1000          | 13.9149       | 52.4172       |
 
 
+The elapsed time don't see any change; however, the FPS of streaming 100 and 1000 frames increase by 23.5% and 31.5%, respectively.
 
 
 ## References
