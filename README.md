@@ -64,18 +64,22 @@ Test 10 times with multithreading
 | 100           | 1.57126       | 63.6563       |
 | 1000          | 14.5097       | 68.9689       |
 
-
 Test 10 times w/o multithreading
 | frames        | Elapsed (Avg) | FPS (Avg)     |
 | ------------- | ------------- | ------------- |
 | 100           | 1.95773       | 51.0956       |
 | 1000          | 13.9149       | 52.4172       |
 
-
 The elapsed time don't see any change; however, the FPS of streaming 100 and 1000 frames increase by 23.5% and 31.5%, respectively.
 
 ### Face Detection
-Face detection using dlib
+Face detection using **dlib**
+
+Trained model for face landmark detection: [download](http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2)
+
+Example of using dlib: [here](http://dlib.net/face_landmark_detection_ex.cpp.html)
+
+
 
 ### Object Detection
 Object detection
