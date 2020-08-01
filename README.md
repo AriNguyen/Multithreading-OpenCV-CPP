@@ -33,13 +33,27 @@ http://dlib.net/webcam_face_pose_ex.cpp.html
 
 
 ## Analysis
-With 100 frames:
-[INFO] elasped time: 1.67111seconds
-[INFO] approx. FPS: 59.8404
+Stream 1000 frames for 10 times and record the data:
+```shell
+# run in terminal
+for i in {1..10}; do
+    # execute and direct output to text file
+    ./bin/thread_opencv_cpp 1000 >> output.txt
+done
+```
+Test 10 times with multithreading
+| frames        | Elapsed (Avg) | FPS (Avg)     |
+| ------------- | ------------- | ------------- |
+| 100           | 1.57126       | 63.6563        |
+| 1000          | 14.5097       | 68.9689       |
 
-With 100 frames:
-[INFO] elasped time: 16.1492 seconds
-[INFO] approx. FPS: 61.9224
+
+Test 11 times w/o multithreading
+| frames        | Elapsed (Avg) | FPS (Avg)     |
+| ------------- | ------------- | ------------- |
+| 100           | 1.57211       | 63.621        |
+| 1000          | 14.5213       | 68.9097       |
+
 
 ## References
 https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/
