@@ -1,6 +1,6 @@
 /**
- *  @file main.cpp
- *  @brief opencv webcam stream and testing multithreading efficiency
+ *  @file main2.cpp
+ *  @brief opencv webcam stream w/o multithreading
  *  @author Ari Nguyen 
  */
 #include <chrono>
