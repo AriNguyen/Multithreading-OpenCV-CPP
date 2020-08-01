@@ -1,0 +1,30 @@
+[INFO] Total Frames: 1000
+[INFO] Elasped time: 18.8156 seconds
+[INFO] Approx. FPS: 53.1475
+[INFO] Total Frames: 1000
+[INFO] Elasped time: 18.7849 seconds
+[INFO] Approx. FPS: 53.2343
+[INFO] Total Frames: 1000
+[INFO] Elasped time: 18.6672 seconds
+[INFO] Approx. FPS: 53.5698
+[INFO] Total Frames: 1000
+[INFO] Elasped time: 18.7944 seconds
+[INFO] Approx. FPS: 53.2073
+[INFO] Total Frames: 1000
+[INFO] Elasped time: 18.8498 seconds
+[INFO] Approx. FPS: 53.051
+[INFO] Total Frames: 1000
+[INFO] Elasped time: 18.7302 seconds
+[INFO] Approx. FPS: 53.3896
+[INFO] Total Frames: 1000
+[INFO] Elasped time: 16.7028 seconds
+[INFO] Approx. FPS: 53.1648
+[INFO] Total Frames: 1000
+[INFO] Elasped time: 1.43444 seconds
+[INFO] Approx. FPS: 49.4965
+[INFO] Total Frames: 1000
+[INFO] Elasped time: 1.21613 seconds
+[INFO] Approx. FPS: 48.5144
+[INFO] Total Frames: 1000
+[INFO] Elasped time: 7.15399 seconds
+[INFO] Approx. FPS: 53.3968
