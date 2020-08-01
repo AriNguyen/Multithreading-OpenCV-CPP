@@ -22,7 +22,7 @@ void FPS::update() {
 
 
 double FPS::elapsed() {
-    double elapsed_secs = double(this->timeStop - this->timeStart) / CLOCKS_PER_SEC;;
+    double elapsed_secs = double(this->timeStop - this->timeStart) / CLOCKS_PER_SEC;
     return elapsed_secs;
 }
 
