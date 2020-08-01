@@ -75,8 +75,10 @@ Test 10 times w/o multithreading
 The elapsed time don't see any change; however, the FPS of streaming 100 and 1000 frames increase by 23.5% and 31.5%, respectively.
 
 ### Face Detection
+Face detection using dlib
 
 ### Object Detection
+Object detection
 
 ## References
 https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/
