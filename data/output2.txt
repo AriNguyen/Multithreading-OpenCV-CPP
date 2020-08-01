@@ -1,0 +1,50 @@
+Start grabbing ...
+Press any key to terminate
+[INFO] Total Frames: 100
+[INFO] Elasped time: 1.57305 seconds
+[INFO] Approx. FPS: 63.5709
+Start grabbing ...
+Press any key to terminate
+[INFO] Total Frames: 100
+[INFO] Elasped time: 1.54378 seconds
+[INFO] Approx. FPS: 64.7761
+Start grabbing ...
+Press any key to terminate
+[INFO] Total Frames: 100
+[INFO] Elasped time: 1.57729 seconds
+[INFO] Approx. FPS: 63.3998
+Start grabbing ...
+Press any key to terminate
+[INFO] Total Frames: 100
+[INFO] Elasped time: 1.55032 seconds
+[INFO] Approx. FPS: 64.503
+Start grabbing ...
+Press any key to terminate
+[INFO] Total Frames: 100
+[INFO] Elasped time: 1.58726 seconds
+[INFO] Approx. FPS: 63.0018
+Start grabbing ...
+Press any key to terminate
+[INFO] Total Frames: 100
+[INFO] Elasped time: 1.5529 seconds
+[INFO] Approx. FPS: 64.3956
+Start grabbing ...
+Press any key to terminate
+[INFO] Total Frames: 100
+[INFO] Elasped time: 1.57145 seconds
+[INFO] Approx. FPS: 63.6353
+Start grabbing ...
+Press any key to terminate
+[INFO] Total Frames: 100
+[INFO] Elasped time: 1.56776 seconds
+[INFO] Approx. FPS: 63.7855
+Start grabbing ...
+Press any key to terminate
+[INFO] Total Frames: 100
+[INFO] Elasped time: 1.56053 seconds
+[INFO] Approx. FPS: 64.081
+Start grabbing ...
+Press any key to terminate
+[INFO] Total Frames: 100
+[INFO] Elasped time: 1.62829 seconds
+[INFO] Approx. FPS: 61.4142
